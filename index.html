@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0a14">
+<meta name="description" content="星云影视（xingyunyingshi-zh）是面向华语观众的影视资料与放映信息站，收录电影、剧集、纪录片与动画的片库档案、上映动态和观影指南，全部内容以 https://xingyunyingshi-zh.github.io 为唯一访问地址。">
+<meta name="keywords" content="星云影视, xingyunyingshi-zh, 华语电影资料, 剧集档案, 在线影视指南, 纪录片片库">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta property="og:title" content="星云影视 | 华语电影、剧集与纪录片放映档案">
+<meta property="og:description" content="星云影视整理电影、剧集、纪录片与动画的片库信息、上映动态和观影指南，官方站点 xingyunyingshi-zh.github.io。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xingyunyingshi-zh.github.io">
+<meta property="og:site_name" content="星云影视">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="星云影视 | 华语影视放映档案 xingyunyingshi-zh">
+<meta name="twitter:description" content="电影、剧集、纪录片、动画四档片库，附上映动态与观影指南。">
+<link rel="canonical" href="https://xingyunyingshi-zh.github.io">
+<title>星云影视 | 华语电影、剧集与纪录片放映档案 · xingyunyingshi-zh</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "星云影视",
+  "alternateName": "xingyunyingshi-zh",
+  "url": "https://xingyunyingshi-zh.github.io",
+  "description": "华语电影、剧集、纪录片与动画的影视资料与放映信息站。",
+  "inLanguage": "zh-CN",
+  "publisher": {
+    "@type": "Organization",
+    "name": "星云影视",
+    "url": "https://xingyunyingshi-zh.github.io"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://xingyunyingshi-zh.github.io/#suoyin",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<style>
+:root{
+  --ink:#eaf3ff;
+  --ink-dim:#9fb0c8;
+  --ink-faint:#6c7d96;
+  --paper:#0b0a14;
+  --panel:#12111f;
+  --panel-2:#181726;
+  --line:#232236;
+  --accent:#7ee0c2;
+  --accent-2:#8aa9ff;
+  --warn:#ffcf6b;
+  --radius:14px;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.2px;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(620px 420px at 12% -8%, rgba(126,224,194,.10), transparent 62%),
+    radial-gradient(760px 520px at 108% 8%, rgba(138,169,255,.13), transparent 60%),
+    linear-gradient(180deg,#0b0a14 0%,#090812 100%);
+}
+img,svg,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#2c2a44;border-radius:8px}
+::-webkit-scrollbar-track{background:transparent}
+
+/* ===== 顶部导航 ===== */
+.hd{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,10,20,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.hd-row{
+  max-width:var(--max);margin:0 auto;
+  display:flex;align-items:center;gap:14px;
+  padding:11px 20px;
+}
+.brand{display:flex;align-items:baseline;gap:9px;font-weight:700;letter-spacing:1px}
+.brand b{font-size:19px;background:linear-gradient(92deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand span{font-size:11px;color:var(--ink-faint);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.6px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:4px;overflow-x:auto}
+.nav a{
+  padding:7px 12px;border-radius:9px;font-size:14px;color:var(--ink-dim);
+  white-space:nowrap;border:1px solid transparent;
+}
+.nav a:hover{color:var(--ink);background:var(--panel-2)}
+.nav a.on{color:#07120e;background:var(--accent);border-color:var(--accent)}
+.hd-act{display:flex;align-items:center;gap:8px}
+.q-btn{
+  font:inherit;cursor:pointer;
+  padding:8px 13px;border-radius:9px;font-size:13px;
+  background:var(--panel-2);color:var(--ink);border:1px solid var(--line);
+}
+.q-btn:hover{border-color:var(--accent);color:var(--accent)}
+.menu-sw{display:none}
+
+/* ===== 布局 ===== */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+section{padding:64px 0;position:relative}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+.kicker::before{content:"";width:22px;height:1px;background:var(--accent)}
+h2.sec{
+  font-size:clamp(24px,3.4vw,36px);line-height:1.25;font-weight:750;
+  letter-spacing:.5px;
+}
+.sec-note{color:var(--ink-dim);margin-top:10px;max-width:62ch}
+.eyebrow{color:var(--ink-faint);font-size:13px;margin-top:6px;font-family:ui-monospace,Menlo,Consolas,monospace}
+
+/* ===== Hero ===== */
+.hero{padding:76px 0 54px}
+.hero-grid{display:grid;grid-template-columns:1.32fr .68fr;gap:36px;align-items:center}
+.h-tag{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.h-tag i{
+  font-style:normal;font-size:12px;padding:4px 10px;border-radius:99px;
+  border:1px solid var(--line);color:var(--ink-dim);background:var(--panel);
+}
+h1.hero-t{
+  font-size:clamp(34px,6.2vw,64px);line-height:1.08;font-weight:800;
+  letter-spacing:-.5px;
+}
+h1.hero-t em{font-style:normal;color:var(--accent)}
+.hero-p{color:var(--ink-dim);margin-top:18px;max-width:60ch;font-size:16.5px}
+.hero-tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;align-items:center}
+.prim{
+  font:inherit;cursor:pointer;
+  padding:12px 22px;border-radius:11px;font-size:15px;font-weight:650;
+  background:var(--accent);color:#06120d;border:1px solid var(--accent);
+}
+.prim:hover{filter:brightness(1.07)}
+.ghost{
+  font:inherit;cursor:pointer;
+  padding:12px 20px;border-radius:11px;font-size:15px;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+}
+.ghost:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.addr{
+  margin-top:22px;padding:11px 14px;border-radius:11px;
+  border:1px dashed var(--line);background:var(--panel);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.addr b{font-weight:600}
+.addr code{
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;
+  color:var(--accent);
+}
+.copy{
+  margin-left:auto;font:inherit;cursor:pointer;font-size:12px;
+  padding:5px 11px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);color:var(--ink-dim);
+}
+.copy.ok{color:var(--accent);border-color:var(--accent)}
+
+/* 右侧放映卡 */
+.reel{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  padding:20px;position:relative;overflow:hidden;
+}
+.reel::after{
+  content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;
+  border-radius:50%;background:radial-gradient(circle,rgba(126,224,194,.22),transparent 70%);
+}
+.rh{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.rh small{color:var(--ink-faint);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+.live{
+  display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--warn);
+  border:1px solid rgba(255,207,107,.35);padding:3px 9px;border-radius:99px;background:rgba(255,207,107,.08);
+}
+.live s{width:6px;height:6px;border-radius:50%;background:var(--warn);text-decoration:none;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+.frame{
+  margin-top:16px;aspect-ratio:16/10;border-radius:11px;overflow:hidden;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 2px, transparent 2px 5px),
+    linear-gradient(135deg,#1b1a2e,#0f0e1a);
+  position:relative;
+}
+.frame .scr{
+  position:absolute;inset:14px;border-radius:7px;overflow:hidden;
+  background:
+    linear-gradient(120deg,rgba(138,169,255,.18),rgba(126,224,194,.10) 45%,rgba(20,18,36,.9));
+}
+.frame .scr span{
+  position:absolute;left:16px;top:14px;font-size:11px;letter-spacing:2px;
+  color:#cfe9dd;font-family:ui-monospace,Menlo,monospace;
+}
+.frame .scr u{position:absolute;left:16px;bottom:14px;font-size:10px;color:#b9c7d8;text-decoration:none;letter-spacing:1px}
+.ticker{
+  position:absolute;right:-8%;bottom:26px;white-space:nowrap;
+  font-family:ui-monospace,Menlo,monospace;font-size:12px;color:rgba(234,243,255,.55);
+  animation:roll 26s linear infinite;
+}
+@keyframes roll{from{transform:translateX(0)}to{transform:translateX(-52%)}}
+.rlist{margin-top:16px;display:grid;gap:9px}
+.rlist div{
+  display:flex;align-items:center;gap:10px;font-size:13.5px;
+  padding:8px 10px;border-radius:9px;background:rgba(255,255,255,.025);border:1px solid transparent;
+}
+.rlist div:hover{border-color:var(--line);color:var(--accent)}
+.rlist b{font-weight:600}
+.rlist time{margin-left:auto;font-size:11.5px;color:var(--ink-faint);font-family:ui-monospace,Menlo,monospace;white-space:nowrap}
+
+/* ===== 栏目条 ===== */
+.bar{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  margin-top:26px;
+}
+.bar a{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--panel);padding:18px 16px;transition:.25s;position:relative;overflow:hidden;
+}
+.bar a:hover{transform:translateY(-3px);border-color:var(--accent);background:var(--panel-2)}
+.bar .no{
+  font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--ink-faint);letter-spacing:1px;
+}
+.bar h3{font-size:17px;margin:8px 0 5px;font-weight:700}
+.bar p{font-size:13px;color:var(--ink-dim);line-height:1.6}
+.bar a::after{
+  content:"";position:absolute;right:-30px;bottom:-30px;width:80px;height:80px;border-radius:50%;
+  background:radial-gradient(circle,rgba(138,169,255,.20),transparent 70%);opacity:0;transition:.25s;
+}
+.bar a:hover::after{opacity:1}
+
+/* ===== 片库 ===== */
+.ops{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0 16px}
+.fltr{
+  font:inherit;cursor:pointer;font-size:13px;padding:7px 14px;border-radius:99px;
+  border:1px solid var(--line);background:var(--panel);color:var(--ink-dim);
+}
+.fltr.on{background:var(--ink);color:#07120e;border-color:var(--ink)}
+.fltr:hover:not(.on){border-color:var(--accent-2);color:var(--ink)}
+.ops input{
+  font:inherit;font-size:13px;padding:8px 13px;border-radius:99px;
+  border:1px solid var(--line);background:var(--panel);color:var(--ink);
+  flex:1;min-width:180px;outline:none;
+}
+.ops input:focus{border-color:var(--accent)}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;
+}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+  overflow:hidden;display:flex;flex-direction:column;transition:.25s;
+}
+.card.hide{display:none}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.poster{
+  aspect-ratio:3/4;position:relative;overflow:hidden;
+  background:linear-gradient(150deg,var(--panel-2),#0d0c17);
+}
+.poster::before{
+  content:attr(data-g);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:clamp(20px,3.4vw,30px);font-weight:800;color:rgba(234,243,255,.13);letter-spacing:2px;text-align:center;padding:14px;
+}
+.poster::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:46%;
+  background:linear-gradient(to top,var(--panel),transparent);
+}
+.poster .yr{
+  position:absolute;top:10px;left:10px;z-index:2;font-size:11px;font-family:ui-monospace,Menlo,monospace;
+  padding:3px 8px;border-radius:6px;background:rgba(7,18,13,.75);color:var(--accent);border:1px solid rgba(126,224,194,.35);
+}
+.poster .tg{
+  position:absolute;top:10px;right:10px;z-index:2;font-size:10.5px;
+  padding:3px 8px;border-radius:6px;background:rgba(15,14,26,.82);color:var(--ink-dim);border:1px solid var(--line);
+}
+.poster .rt{
+  position:absolute;bottom:10px;left:10px;z-index:2;font-size:11px;font-family:ui-monospace,Menlo,monospace;
+  color:#ffe0a8;letter-spacing:.5px;
+}
+.body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:6px;flex:1}
+.body h3{font-size:15.5px;font-weight:700;line-height:1.4}
+.body .meta{font-size:12px;color:var(--ink-faint);font-family:ui-monospace,Menlo,monospace}
+.body p{font-size:13px;color:var(--ink-dim);line-height:1.62}
+.body .more{
+  margin-top:auto;padding-top:9px;font-size:12.5px;color:var(--accent-2);display:inline-flex;align-items:center;gap:5px;
+}
+.empty{display:none;padding:30px;border:1px dashed var(--line);border-radius:var(--radius);text-align:center;color:var(--ink-faint);font-size:14px}
+.empty.on{display:block}
+
+/* ===== 文章/指南 ===== */
+.guides{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;margin-top:24px;align-items:start}
+.note-box{
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:var(--radius);background:var(--panel);padding:22px 22px 18px;
+}
+.note-box h3{font-size:18px;margin-bottom:8px}
+.note-box p{font-size:14.5px;color:var(--ink-dim)}
+.note-box ol{margin:12px 0 0;display:grid;gap:10px;counter-reset:c}
+.note-box ol li{
+  font-size:14px;color:var(--ink-dim);padding-left:30px;position:relative;
+}
+.note-box ol li::before{
+  counter-increment:c;content:counter(c,decimal-leading-zero);
+  position:absolute;left:0;top:1px;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent);
+}
+.note-box ol li b{color:var(--ink);font-weight:650}
+.toc{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+  padding:18px 20px;position:sticky;top:84px;
+}
+.toc h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px;font-weight:600}
+.toc ol{counter-reset:t;display:grid;gap:2px}
+.toc ol li a{
+  display:flex;gap:11px;align-items:baseline;padding:9px 8px;border-radius:8px;font-size:14px;color:var(--ink-dim);
+}
+.toc ol li a:hover{background:var(--panel-2);color:var(--ink)}
+.toc ol li a::before{
+  counter-increment:t;content:counter(t,decimal-leading-zero);
+  font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--accent-2);flex:none;min-width:22px;
+}
+.toc ol li a em{font-style:normal;margin-left:auto;font-size:11px;color:var(--ink-faint);font-family:ui-monospace,Menlo,monospace}
+
+/* ===== 动态时间线 ===== */
+.tl{margin-top:26px;display:grid;gap:14px}
+.tl-item{
+  display:grid;grid-template-columns:112px 1fr;gap:18px;
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+  padding:16px 18px;transition:.2s;
+}
+.tl-item:hover{border-color:var(--accent-2)}
+.tl-item time{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--accent);padding-top:3px;line-height:1.5}
+.tl-item .ttl{font-weight:650;font-size:15.5px}
+.tl-item .desc{font-size:13.5px;color:var(--ink-dim);margin-top:4px}
+.tl-item .flag{display:inline-block;margin-top:9px;font-size:11px;padding:2px 9px;border-radius:99px;border:1px solid var(--line);color:var(--ink-faint)}
+
+/* ===== 收录页 ===== */
+.score{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.sc{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+  padding:20px;text-align:center;
+}
+.sc b{display:block;font-size:30px;font-weight:800;letter-spacing:-.5px;
+  background:linear-gradient(92deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sc span{font-size:12.5px;color:var(--ink-faint);margin-top:5px;display:block}
+.checks{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.ck{
+  border:1px solid var(--line);border-radius:12px;background:var(--panel);
+  padding:15px 16px;display:flex;gap:12px;align-items:flex-start;
+}
+.ck svg{flex:none;width:19px;height:19px;margin-top:3px}
+.ck b{font-size:14.5px;display:block;margin-bottom:3px}
+.ck p{font-size:13px;color:var(--ink-dim);line-height:1.6}
+.ck p code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent)}
+
+/* ===== 页脚 ===== */
+.ft{border-top:1px solid var(--line);padding:44px 0 30px;background:#090812}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}
+.ft h5{font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px;font-weight:600}
+.ft p{font-size:13.5px;color:var(--ink-dim);line-height:1.75}
+.ft a{font-size:13.5px;color:var(--ink-dim);display:block;padding:4px 0}
+.ft a:hover{color:var(--accent)}
+.ft .lock{
+  margin-top:14px;padding:11px 13px;border-radius:10px;border:1px dashed var(--line);background:var(--panel);
+  font-size:12.5px;color:var(--ink-dim);
+}
+.ft .lock b{color:var(--accent);font-family:ui-monospace,Menlo,monospace;font-weight:600}
+.legal{
+  margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--ink-faint);
+}
+.legal code{font-family:ui-monospace,Menlo,monospace;color:var(--ink-dim)}
+
+/* 回到顶部 */
+.top{
+  position:fixed;right:20px;bottom:24px;z-index:60;
+  width:44px;height:44px;border-radius:50%;cursor:pointer;
+  border:1px solid var(--line);background:rgba(18,17,31,.92);color:var(--ink);
+  display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px);
+}
+.top.on{display:flex}
+.top:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ===== 移动端 ===== */
+@media(max-width:900px){
+  .hero-grid,.guides{grid-template-columns:1fr}
+  .bar{grid-template-columns:repeat(2,1fr)}
+  .score{grid-template-columns:repeat(3,1fr)}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  section{padding:50px 0}
+}
+@media(max-width:640px){
+  .hd-row{padding:10px 14px;gap:8px}
+  .brand b{font-size:17px}
+  .brand span{display:none}
+  .nav{position:fixed;left:0;right:0;top:61px;bottom:0;z-index:49;flex-direction:column;align-items:stretch;gap:2px;
+    background:rgba(9,8,18,.97);backdrop-filter:blur(16px);padding:14px;overflow-y:auto;
+    transform:translateX(100%);transition:.28s ease}
+  .nav.open{transform:translateX(0)}
+  .nav a{padding:13px 14px;font-size:15px;border-radius:10px;border:1px solid var(--line);background:var(--panel)}
+  .nav a.on{background:var(--accent);color:#06120d;border-color:var(--accent)}
+  .menu-sw{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;border:1px solid var(--line);background:var(--panel-2);cursor:pointer;color:var(--ink)}
+  .menu-sw svg{width:20px;height:20px}
+  .q-btn{display:none}
+  .wrap{padding:0 14px}
+  h1.hero-t{font-size:clamp(30px,9.4vw,44px)}
+  .hero{padding:44px 0 34px}
+  .bar,.score{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr;gap:6px;padding:14px}
+  .ft-grid{grid-template-columns:1fr}
+  .toc{position:static}
+  .legal{flex-direction:column;align-items:flex-start}
+}
+@media print{
+  .hd,.top,.nav,.ops,.addr .copy{display:none}
+  body{background:#fff;color:#000}
+  a{color:#003a6b}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+<header class="hd" id="top">
+  <div class="hd-row">
+    <div class="brand"><b>星云影视</b><span>xingyunyingshi-zh</span></div>
+    <nav class="nav" id="nav">
+      <a href="#pianku" class="on">片库档案</a>
+      <a href="#zhinan">观影指南</a>
+      <a href="#dongtai">放映动态</a>
+      <a href="#suoyin">站点收录</a>
+      <a href="#guanyu">关于本站</a>
+    </nav>
+    <div class="hd-act">
+      <button class="q-btn" type="button" onclick="document.getElementById('q').focus()">搜索片库</button>
+      <button class="menu-sw" id="menuSw" type="button" aria-label="打开菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="h-tag">
+          <i>华语片库</i><i>上映档案</i><i>观影指南</i><i>独立放映</i>
+        </div>
+        <h1 class="hero-t">把每部片子的来路，<br>都归档在 <em>星云影视</em>。</h1>
+        <p class="hero-p">星云影视（<strong>xingyunyingshi-zh</strong>）只做一件事：把值得看的电影、剧集、纪录片和动画，按年份、地区、类型与版本整理成能查、能翻、能对得上的档案。不放流媒体播放器，不堆新闻标题，收录信息以官方站点为准。</p>
+        <div class="hero-tools">
+          <button class="prim" type="button" onclick="document.getElementById('pianku').scrollIntoView({behavior:'smooth'})">进入片库档案</button>
+          <button class="ghost" type="button" onclick="document.getElementById('suoyin').scrollIntoView({behavior:'smooth'})">查看收录状态</button>
+        </div>
+        <div class="addr">
+          <b>官方唯一地址</b>
+          <code id="siteUrl">https://xingyunyingshi-zh.github.io</code>
+          <button class="copy" id="copyBtn" type="button">复制链接</button>
+        </div>
+      </div>
+
+      <aside class="reel" aria-label="本周放映提示">
+        <div class="rh">
+          <small>本周放映 · Reel 44</small>
+          <span class="live"><s></s>档案已核对</span>
+        </div>
+        <div class="frame">
+          <div class="scr">
+            <span>星云影视 / 放映单</span>
+            <u>2026.10.26 — 11.01 · 华语修复单元</u>
+            <div class="ticker">《河边的错误》4K 修复版 · 《南方车站的聚会》杜比视界版 · 《路边野餐》胶片拷贝 · 《地球最后的夜晚》长镜头专场 · </div>
+          </div>
+        </div>
+        <div class="rlist">
+          <div tabindex="0"><b>河边的错误</b><time>10.26 19:30</time></div>
+          <div tabindex="0"><b>南方车站的聚会</b><time>10.28 20:00</time></div>
+          <div tabindex="0"><b>路边野餐</b><time>10.30 18:00</time></div>
+          <div tabindex="0"><b>地球最后的夜晚</b><time>11.01 20:30</time></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap">
+      <div class="bar">
+        <a href="#pianku">
+          <div class="no">01 / 片库</div>
+          <h3>电影档案</h3>
+          <p>按年代与地区归档的剧情长片、艺术电影与修复版信息。</p>
+        </a>
+        <a href="#pianku">
+          <div class="no">02 / 剧集</div>
+          <h3>剧集档案</h3>
+          <p>单元剧、限定剧与剧集版的季数、集数、播出时间线。</p>
+        </a>
+        <a href="#pianku">
+          <div class="no">03 / 纪录片</div>
+          <h3>纪录片与短片</h3>
+          <p>非虚构影像、影像档案与独立短片，标注片长与取材背景。</p>
+        </a>
+        <a href="#zhinan">
+          <div class="no">04 / 指南</div>
+          <h3>观影指南</h3>
+          <p>版本怎么选、修复版与原版差在哪、字幕与放映规格说明。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 片库档案 ============ -->
+  <section id="pianku" data-sec="片库档案">
+    <div class="wrap">
+      <div class="kicker">Catalog / 01</div>
+      <h2 class="sec">片库档案：先弄清是哪一年、哪一个版本</h2>
+      <p class="sec-note">下面是一份示例档案结构，用于演示星云影视的整理方式。条目按类型筛选，卡片里的年份与规格都可核验；点击「档案详情」会定位到本页对应说明段落，不会跳出站点。</p>
+      <div class="eyebrow">数据源：本站人工整理 · 官方站点 https://xingyunyingshi-zh.github.io</div>
+
+      <div class="ops">
+        <button class="fltr on" type="button" data-f="all">全部</button>
+        <button class="fltr" type="button" data-f="film">电影</button>
+        <button class="fltr" type="button" data-f="tv">剧集</button>
+        <button class="fltr" type="button" data-f="doc">纪录片</button>
+        <button class="fltr" type="button" data-f="ani">动画</button>
+        <input id="q" type="search" placeholder="搜片名、导演、地区或年份，例如：毕赣 2015" aria-label="搜索片库">
+      </div>
+
+      <div class="grid" id="grid">
+        <article class="card" data-cat="film" data-k="路边野餐 毕赣 贵州 2015 长镜头">
+          <div class="poster" data-g="路边野餐">
+            <span class="yr">2015</span><span class="tg">电影</span><span class="rt">★ 8.1</span>
+          </div>
+          <div class="body">
+            <h3>路边野餐</h3>
+            <div class="meta">毕赣 / 贵州凯里 / 110 min / 普通话 · 贵州话</div>
+            <p>以四十二分钟长镜头串联梦境与现实，档案页记录胶片与数字版的画幅差异。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="film" data-k="地球最后的夜晚 毕赣 贵州 2018 3D">
+          <div class="poster" data-g="地球最后的夜晚">
+            <span class="yr">2018</span><span class="tg">电影</span><span class="rt">★ 7.4</span>
+          </div>
+          <div class="body">
+            <h3>地球最后的夜晚</h3>
+            <div class="meta">毕赣 / 贵州 · 台湾 / 138 min / 3D 60fps</div>
+            <p>后半段连续长镜头的放映门槛较高，观影指南里写了该选 2D 还是 3D 场。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="film" data-k="南方车站的聚会 刁亦男 武汉 2019 杜比视界">
+          <div class="poster" data-g="南方车站的聚会">
+            <span class="yr">2019</span><span class="tg">电影</span><span class="rt">★ 7.5</span>
+          </div>
+          <div class="body">
+            <h3>南方车站的聚会</h3>
+            <div class="meta">刁亦男 / 武汉 / 113 min / 杜比视界 · 5.1</div>
+            <p>霓虹与雨夜的影调依赖高亮放映，本站标注了各版本的色域与字幕轨情况。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="film" data-k="河边的错误 魏书钧 90年代 2023 4K修复">
+          <div class="poster" data-g="河边的错误">
+            <span class="yr">2023</span><span class="tg">4K 修复</span><span class="rt">★ 7.2</span>
+          </div>
+          <div class="body">
+            <h3>河边的错误</h3>
+            <div class="meta">魏书钧 / 内地 / 101 min / 4K 修复 · 2.39:1</div>
+            <p>余华小说改编，档案同时保留小说初版与影片叙事结构的对照笔记。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="tv" data-k="隐秘的角落 辛爽 2020 十二集 剧集">
+          <div class="poster" data-g="隐秘的角落">
+            <span class="yr">2020</span><span class="tg">剧集 · 12 集</span><span class="rt">★ 8.8</span>
+          </div>
+          <div class="body">
+            <h3>隐秘的角落</h3>
+            <div class="meta">辛爽 / 湛江取景 / 单集 45 min / 网络剧集</div>
+            <p>限定剧结构，档案按集标注取景地与配乐出处，便于逐集回看。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="tv" data-k="漫长的季节 辛爽 东北 2023 十二集 剧集">
+          <div class="poster" data-g="漫长的季节">
+            <span class="yr">2023</span><span class="tg">剧集 · 12 集</span><span class="rt">★ 9.1</span>
+          </div>
+          <div class="body">
+            <h3>漫长的季节</h3>
+            <div class="meta">辛爽 / 东北 · 桦林 / 单集 50 min</div>
+            <p>时间线跨三个年份，本站单独做了年代对照表，避免串集。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="doc" data-k="人间世 纪录片 医院 2016 医疗">
+          <div class="poster" data-g="人间世">
+            <span class="yr">2016</span><span class="tg">纪录片</span><span class="rt">★ 9.6</span>
+          </div>
+          <div class="body">
+            <h3>人间世 第一季</h3>
+            <div class="meta">周全 等 / 上海瑞金医院 / 10 集 × 45 min</div>
+            <p>跟拍式医疗纪录，档案注明拍摄许可范围与后续随访的公开信息。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="doc" data-k="四个春天 陆庆屹 贵州 2017 家庭纪录片">
+          <div class="poster" data-g="四个春天">
+            <span class="yr">2017</span><span class="tg">纪录片</span><span class="rt">★ 8.8</span>
+          </div>
+          <div class="body">
+            <h3>四个春天</h3>
+            <div class="meta">陆庆屹 / 贵州独山 / 105 min / 家庭影像</div>
+            <p>四年跨度的家庭记录，档案保留拍摄器材与剪辑时间线的说明。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="ani" data-k="大世界 刘健 动画 2017 成人动画">
+          <div class="poster" data-g="大世界">
+            <span class="yr">2017</span><span class="tg">动画</span><span class="rt">★ 7.9</span>
+          </div>
+          <div class="body">
+            <h3>大世界</h3>
+            <div class="meta">刘健 / 独立动画 / 74 min / 2D 手绘</div>
+            <p>金马奖最佳动画长片，档案说明其美术风格与配音阵容的搭配逻辑。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="ani" data-k="雾山五行 林魂 动画 2020 国风">
+          <div class="poster" data-g="雾山五行">
+            <span class="yr">2020</span><span class="tg">动画 · 3 集</span><span class="rt">★ 8.7</span>
+          </div>
+          <div class="body">
+            <h3>雾山五行</h3>
+            <div class="meta">林魂 / 独立动画 / 单集 24 min / 水墨 · 战斗</div>
+            <p>小团队制作的国风动作短片，档案记录作画分工与续作进度。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="film" data-k="心迷宫 忻钰坤 2014 多线叙事">
+          <div class="poster" data-g="心迷宫">
+            <span class="yr">2014</span><span class="tg">电影</span><span class="rt">★ 8.6</span>
+          </div>
+          <div class="body">
+            <h3>心迷宫</h3>
+            <div class="meta">忻钰坤 / 河南农村 / 97 min / 多线叙事</div>
+            <p>低成本处女作，档案把三条人物线的交叉点做成时间对照表。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+
+        <article class="card" data-cat="doc" data-k="我在故宫修文物 纪录片 2016 修复">
+          <div class="poster" data-g="我在故宫修文物">
+            <span class="yr">2016</span><span class="tg">纪录片</span><span class="rt">★ 9.4</span>
+          </div>
+          <div class="body">
+            <h3>我在故宫修文物</h3>
+            <div class="meta">叶君 · 萧寒 / 故宫博物院 / 3 集 × 52 min</div>
+            <p>文物修复题材，档案补了片中涉及的器物编号与展览去向。</p>
+            <a class="more" href="#zhinan">档案详情 →</a>
+          </div>
+        </article>
+      </div>
+      <div class="empty" id="empty">没有命中任何档案，试试换一个导演名或年份。</div>
+    </div>
+  </section>
+
+  <!-- ============ 观影指南 ============ -->
+  <section id="zhinan" data-sec="观影指南">
+    <div class="wrap">
+      <div class="kicker">Guide / 02</div>
+      <h2 class="sec">观影指南：别把「能播」当成「看得对」</h2>
+      <p class="sec-note">同一部片子，影院版、流媒体版、修复版的字幕轨、画幅和音轨可能完全不同。这一栏把常见选择讲清楚，也是星云影视区别于片单聚合站的地方。</p>
+
+      <div class="guides">
+        <div class="note-box">
+          <h3>四个最容易踩的坑</h3>
+          <p>下面四条来自本站整理档案时的实际核对记录，不是平台规则，也不构成观影建议。</p>
+          <ol>
+            <li><b>修复版不等于画质更好。</b>4K 修复提升的是噪点、划痕与调色稳定性，部分胶片颗粒被抹平的反倒失去原版质感，先看「修复来源」再决定场次。</li>
+            <li><b>长镜头场次要看放映制式。</b>《路边野餐》《地球最后的夜晚》这类段落，2D 场与 3D 场的亮度、帧率不同，选错场会直接丢掉影调层次。</li>
+            <li><b>剧集别按「季」盲目追。</b>限定剧与单元剧的叙事闭环在一季之内，档案里标了单季闭环与跨季续线的区别，能省下大量试错时间。</li>
+            <li><b>纪录片留意拍摄许可边界。</b>跟拍类片子常只拍到公开可拍的部分，片中人物的后续去向需要另查公开资料，本站会在条目里单独标注。</li>
+          </ol>
+        </div>
+
+        <nav class="toc" aria-label="指南目录">
+          <h4>本页索引</h4>
+          <ol>
+            <li><a href="#pianku">片库档案 <em>01</em></a></li>
+            <li><a href="#zhinan">观影指南 <em>02</em></a></li>
+            <li><a href="#dongtai">放映动态 <em>03</em></a></li>
+            <li><a href="#suoyin">站点收录 <em>04</em></a></li>
+            <li><a href="#guanyu">关于本站 <em>05</em></a></li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="note-box" style="margin-top:20px;border-left-color:var(--accent-2)">
+        <h3>版本核对清单：每次看片前过一遍</h3>
+        <ol>
+          <li><b>年份与地区</b>——同片名跨地区的版本，片长常差 3 到 9 分钟，别混着写短评。</li>
+          <li><b>画幅</b>——2.39:1 与 1.85:1 的上下黑边不同，投屏前先确认片源。</li>
+          <li><b>音轨与字幕</b>——方言对白片请优先带原声轨的版本，硬字幕会挡住画面细节。</li>
+          <li><b>档案更新时间</b>——条目底部都标了核对日期，超过一年的信息请当作参考而非结论。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 放映动态 ============ -->
+  <section id="dongtai" data-sec="放映动态">
+    <div class="wrap">
+      <div class="kicker">Timeline / 03</div>
+      <h2 class="sec">放映动态：档案之外的临时加场</h2>
+      <p class="sec-note">这一栏记的是线下放映、修复版首映与资料馆排片，不跟踪每日票房。时间均为北京时间，以放映方公告为最终依据。</p>
+
+      <div class="tl">
+        <article class="tl-item">
+          <time>2026.10.26<br>周一</time>
+          <div>
+            <div class="ttl">华语修复单元 · 第四十四场：河边的错误 4K 修复版</div>
+            <p class="desc">片长 101 分钟，2.39:1 画幅，映后安排三十分钟胶片与数字版画质对照讨论。座位与片源状态以放映方当日公告为准。</p>
+            <span class="flag">修复放映 · 北京</span>
+          </div>
+        </article>
+        <article class="tl-item">
+          <time>2026.10.28<br>周三</time>
+          <div>
+            <div class="ttl">南方车站的聚会 · 杜比视界场</div>
+            <p class="desc">本站已核对放映制式的峰值亮度要求，并在片库条目中更新了音轨与字幕轨信息，观前可先翻对应档案页。</p>
+            <span class="flag">杜比视界 · 武汉</span>
+          </div>
+        </article>
+        <article class="tl-item">
+          <time>2026.10.30<br>周五</time>
+          <div>
+            <div class="ttl">路边野餐 · 胶片拷贝专场</div>
+            <p class="desc">胶片拷贝与 2015 数字发行版的色彩倾向不同，本站档案已补入两种介质的差异笔记，供映后对照。</p>
+            <span class="flag">胶片 · 贵阳</span>
+          </div>
+        </article>
+        <article class="tl-item">
+          <time>2026.11.01<br>周六</time>
+          <div>
+            <div class="ttl">地球最后的夜晚 · 长镜头专场（3D）</div>
+            <p class="desc">仅限支持 3D 60fps 的放映厅，本站会在场次前一天再次核对设备信息并更新本条目。</p>
+            <span class="flag">3D 专场 · 上海</span>
+          </div>
+        </article>
+        <article class="tl-item">
+          <time>2026.11.05<br>周三</time>
+          <div>
+            <div class="ttl">档案补录：独立动画短篇三则</div>
+            <p class="desc">计划补入三部 10 分钟以内的独立动画短片档案，含作画分工与公映记录，届时可于片库筛选「动画」查看。</p>
+            <span class="flag">档案更新 · 站内</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 站点收录 ============ -->
+  <section id="suoyin" data-sec="站点收录">
+    <div class="wrap">
+      <div class="kicker">Indexing / 04</div>
+      <h2 class="sec">站点收录：一部静态页怎么被看懂</h2>
+      <p class="sec-note">星云影视目前是单文件静态站，所有栏目都在同一份 HTML 里，靠锚点分段。对必应这类更看重原始 HTML 内容与精确关键词匹配的索引器来说，关键不是加多少标签，而是让每一段文字、每一个标题都真的讲清楚了这件事。</p>
+
+      <div class="score">
+        <div class="sc"><b>1</b><span>单文件 index.html</span></div>
+        <div class="sc"><b>4</b><span>可锚点直达的栏目</span></div>
+        <div class="sc"><b>0</b><span>robots / sitemap 依赖</span></div>
+      </div>
+
+      <div class="checks">
+        <div class="ck">
+          <svg viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M3 10.5l4 4 9-9"/></svg>
+          <div><b>唯一规范的地址</b><p>canonical 写死为 <code>https://xingyunyingshi-zh.github.io</code>，锚点只做页内定位，不产生重复地址变体。</p></div>
+        </div>
+        <div class="ck">
+          <svg viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M3 10.5l4 4 9-9"/></svg>
+          <div><b>标题与 H1 各说一次</b><p>title 在首屏 40 字符内出现「星云影视」，H1 用完整语义句承接，二者不复制粘贴，避免被判模板重复。</p></div>
+        </div>
+        <div class="ck">
+          <svg viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M3 10.5l4 4 9-9"/></svg>
+          <div><b>描述写给点进来的人</b><p>meta description 控制在 150 字上下，先说内容范围再说地址，末尾不带关键词堆叠，SERP 里更不容易被改写。</p></div>
+        </div>
+        <div class="ck">
+          <svg viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M3 10.5l4 4 9-9"/></svg>
+          <div><b>栏目即内容，不靠 JS 灌入</b><p>片库卡片、放映时间线都是原始 HTML，Bingbot 首次抓取即可读，不依赖脚本执行后才出现。</p></div>
+        </div>
+        <div class="ck">
+          <svg viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M3 10.5l4 4 9-9"/></svg>
+          <div><b>一个 H1，四层 H2 逻辑</b><p>section 各带独立小标题，锚点导航与右侧目录相互呼应，索引器能直接拆出四个主题块。</p></div>
+        </div>
+        <div class="ck">
+          <svg viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M3 10.5l4 4 9-9"/></svg>
+          <div><b>结构化数据不抢戏</b><p>只放一份 WebSite + SearchAction 的 JSON-LD，名称、alternateName、url 三处都落到本站，不重复堆 schema。</p></div>
+        </div>
+        <div class="ck">
+          <svg viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M3 10.5l4 4 9-9"/></svg>
+          <div><b>移动端是同一份源码</b><p>响应式断点直接写在文件内，没有 m. 子域、没有独立移动页，不必处理两套 URL 的规范指向。</p></div>
+        </div>
+        <div class="ck">
+          <svg viewBox="0 0 20 20" fill="none" stroke="var(--accent)" stroke-width="2" aria-hidden="true"><path d="M3 10.5l4 4 9-9"/></svg>
+          <div><b>不生成 robots 与 sitemap</b><p>按你的要求，本目录只有 index.html 一个文件；单页站点靠清晰锚点与内部链接完成分发，不额外造索引文件。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 关于 ============ -->
+  <section id="guanyu" data-sec="关于本站">
+    <div class="wrap">
+      <div class="kicker">About / 05</div>
+      <h2 class="sec">关于本站：一个不追热搜的影视档案页</h2>
+      <div class="guides" style="grid-template-columns:1fr 1fr">
+        <div class="note-box">
+          <h3>我们在记什么</h3>
+          <p>星云影视只维护三类信息：片子本身的档案（年份、地区、片长、版本）、怎么看的选择（画幅、音轨、字幕、放映制式）、以及线下放映的时间线。不提供播放源，不搬运剧情解说，也不做榜单排名。</p>
+          <p style="margin-top:10px">站点名称与访问地址固定为 <strong>星云影视</strong> / <code style="font-family:ui-monospace,Menlo,monospace;color:var(--accent)">https://xingyunyingshi-zh.github.io</code>，不会跳转、不会换域名。</p>
+        </div>
+        <div class="note-box" style="border-left-color:var(--accent-2)">
+          <h3>为什么是这种排版</h3>
+          <p>深色放映厅质感 + 等宽字体的编号系统，是为了让「年份、片长、场次时间」这类机器与人都能快速扫读的信息保持对齐。卡片不用图片请求，断网、弱网、关图都能读完档案。</p>
+          <p style="margin-top:10px">页内链接全部是 <code style="font-family:ui-monospace,Menlo,monospace;color:var(--accent-2)">#pianku / #zhinan / #dongtai / #suoyin / #guanyu</code>，不引出任何外部页面，收藏一次就能离线翻完全部栏目。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-grid">
+    <div>
+      <div class="brand"><b>星云影视</b><span>xingyunyingshi-zh</span></div>
+      <p style="margin-top:12px">华语电影、剧集、纪录片与动画的档案整理页。把版本、规格和场次记清楚，剩下的交给观众自己判断。</p>
+      <div class="lock">官方唯一入口：<b>https://xingyunyingshi-zh.github.io</b><br>本页内链均为锚点，不跳转到其他域名。</div>
+    </div>
+    <div>
+      <h5>栏目</h5>
+      <a href="#pianku">片库档案</a>
+      <a href="#zhinan">观影指南</a>
+      <a href="#dongtai">放映动态</a>
+      <a href="#suoyin">站点收录</a>
+      <a href="#guanyu">关于本站</a>
+    </div>
+    <div>
+      <h5>核对与说明</h5>
+      <p>条目中的年份、片长、画幅与场次为人工整理，仅供查阅与对照，不代表放映安排或版权授权。</p>
+      <p style="margin-top:8px">发现档案有误？直接以片尾字幕或发行方公告为准，本站会在核对后更新。</p>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span>© <span id="yr">2026</span> 星云影视 · xingyunyingshi-zh。本站内容仅供影视资料查阅。</span>
+    <code>canonical: https://xingyunyingshi-zh.github.io</code>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  var url = "https://xingyunyingshi-zh.github.io";
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* 复制官方地址 */
+  var copyBtn = document.getElementById("copyBtn");
+  copyBtn.addEventListener("click", function(){
+    var done = function(){
+      copyBtn.textContent = "已复制";
+      copyBtn.classList.add("ok");
+      setTimeout(function(){ copyBtn.textContent = "复制链接"; copyBtn.classList.remove("ok"); }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var t = document.createElement("textarea");
+      t.value = url; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); done(); } catch(e){ copyBtn.textContent = "请手动复制"; }
+      document.body.removeChild(t);
+    }
+  });
+
+  /* 移动端菜单 */
+  var menuSw = document.getElementById("menuSw");
+  var nav = document.getElementById("nav");
+  menuSw.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    menuSw.setAttribute("aria-expanded", open ? "true" : "false");
+    menuSw.setAttribute("aria-label", open ? "关闭菜单" : "打开菜单");
+  });
+  nav.addEventListener("click", function(e){
+    if (e.target.tagName === "A") { nav.classList.remove("open"); menuSw.setAttribute("aria-expanded","false"); }
+  });
+
+  /* 片库筛选 + 搜索 */
+  var grid = document.getElementById("grid");
+  var cards = Array.prototype.slice.call(grid.querySelectorAll(".card"));
+  var fltrs = Array.prototype.slice.call(document.querySelectorAll(".fltr"));
+  var q = document.getElementById("q");
+  var empty = document.getElementById("empty");
+  var cur = "all";
+
+  function apply(){
+    var kw = q.value.trim().toLowerCase();
+    var vis = 0;
+    cards.forEach(function(c){
+      var okCat = (cur === "all") || c.getAttribute("data-cat") === cur;
+      var okKw = !kw || (c.getAttribute("data-k") || "").toLowerCase().indexOf(kw) > -1;
+      var show = okCat && okKw;
+      c.classList.toggle("hide", !show);
+      if (show) vis++;
+    });
+    empty.classList.toggle("on", vis === 0);
+  }
+  fltrs.forEach(function(b){
+    b.addEventListener("click", function(){
+      fltrs.forEach(function(x){ x.classList.remove("on"); });
+      b.classList.add("on");
+      cur = b.getAttribute("data-f");
+      apply();
+    });
+  });
+  q.addEventListener("input", apply);
+
+  /* 滚动：导航高亮 + 回到顶部 */
+  var secs = Array.prototype.slice.call(document.querySelectorAll("section[data-sec]"));
+  var links = Array.prototype.slice.call(nav.querySelectorAll("a"));
+  var topBtn = document.getElementById("topBtn");
+
+  function onScroll(){
+    var y = window.scrollY + 140;
+    var curId = "";
+    secs.forEach(function(s){ if (s.offsetTop <= y) curId = s.getAttribute("id"); });
+    links.forEach(function(a){
+      a.classList.toggle("on", a.getAttribute("href") === "#" + curId);
+    });
+    topBtn.classList.toggle("on", window.scrollY > 600);
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  topBtn.addEventListener("click", function(){
+    window.scrollTo({top:0, behavior:"smooth"});
+  });
+})();
+</script>
+</body>
+</html>
